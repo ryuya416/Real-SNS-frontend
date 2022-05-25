@@ -3,10 +3,10 @@ import "./Rightbar.css";
 import { Users } from "../../dummyData";
 import { Online } from "../online/Online";
 
-export const Rightbar = () => {
-  return (
-    <div className="rightbar">
-      <div className="rightbarWrapper">
+export const Rightbar = ({ profile }) => {
+  const HomeRightbar = () => {
+    return (
+      <>
         <div className="eventConttainer">
           <img src="assets/star.png" alt="" className="statImg" />
           <span className="eventText">
@@ -39,6 +39,63 @@ export const Rightbar = () => {
           className="rightbarPromotionImg"
         />
         <p className="promotionName">shincode株式会社</p>
+      </>
+    );
+  };
+
+  const ProfileRightbar = () => {
+    return (
+      <>
+        <h4 className="rightbarTitle">ユーザー情報</h4>
+        <div className="rightbarInfo">
+          <div className="rightbarInfoItem">
+            <span className="rightbarInfoKey">出身</span>
+            <span className="rightbarInfoKey">福岡</span>
+          </div>
+          <h4 className="rightbarTitle">あなたの友達</h4>
+          <div className="rightbarFollowings">
+            <div className="rightbarFollowing">
+              <img
+                src="assets/person/1.jpeg"
+                alt=""
+                className="rightbarFollowingImg"
+              />
+              <span className="rightbarFollowingName">Shin Code</span>
+            </div>
+            <div className="rightbarFollowing">
+              <img
+                src="assets/person/2.jpeg"
+                alt=""
+                className="rightbarFollowingImg"
+              />
+              <span className="rightbarFollowingName">Tnaka Code</span>
+            </div>
+            <div className="rightbarFollowing">
+              <img
+                src="assets/person/3.jpeg"
+                alt=""
+                className="rightbarFollowingImg"
+              />
+              <span className="rightbarFollowingName">yamaki Code</span>
+            </div>
+            <div className="rightbarFollowing">
+              <img
+                src="assets/person/4.jpeg"
+                alt=""
+                className="rightbarFollowingImg"
+              />
+              <span className="rightbarFollowingName">ueno Code</span>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  return (
+    <div className="rightbar">
+      <div className="rightbarWrapper">
+        {profile ? <ProfileRightbar /> : <HomeRightbar />}
       </div>
     </div>
   );
